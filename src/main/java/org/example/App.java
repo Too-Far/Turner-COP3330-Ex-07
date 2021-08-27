@@ -21,8 +21,9 @@ public class App
 
     public static void calcMeasurements(Map<String, Integer> measurements)
     {
+        double conversion = 0.0929;
         int ftSq = measurements.get("width") * measurements.get("length");
-        double mSq = ftSq * 0.0929;
+        double mSq = ftSq * conversion;
         formulateMessage(ftSq, mSq);
     }
 
@@ -36,8 +37,10 @@ public class App
 
         System.out.println("What is the width of the room in feet? ");
         measurements.put("width", Integer.parseInt(reader.readLine()));
+
         System.out.println("You entered the dimensions of " + measurements.get("length") +" feet by "
         + measurements.get("width") + " feet.");
+
         calcMeasurements(measurements);
     }
 
